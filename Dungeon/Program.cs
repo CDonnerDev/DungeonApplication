@@ -33,7 +33,9 @@
 
             do
             {
-                //TODO Generate a random room the player will enter
+                //TODO GetRoom()
+                //Console.WriteLine(GetRoom());
+                Console.WriteLine(GetRoom());
 
                 //TODO Select a random monster to inhabit   
 
@@ -143,9 +145,24 @@
             //Added this line to preserve Console.Title
             Console.ReadKey();
 
-        }
-    }
-}
+        }//end main()
+
+        private static string GetRoom()
+        {
+            string[] rooms =
+            {
+                "You enter a room and smell all the lost souls of the great beyond.",
+                "You enter a room and realise you're at an abandoned basement.",
+                "The room looks like its all pink and that's the only color you can see.",
+                "You enter a room and all you can hear is white noise, the smell of fear lingers on you",
+                "You have entered a room that has a fowl smell of urine and manure"
+
+            };
+
+            return rooms[new Random().Next(rooms.Length)];
+        }//end GetRoom
+    }//end class
+}//end namespace
 
 
 
