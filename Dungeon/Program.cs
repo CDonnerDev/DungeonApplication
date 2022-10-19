@@ -1,4 +1,6 @@
-﻿namespace Dungeon
+﻿using DungeonLibrary;
+
+namespace Dungeon
 {
     internal class Program
     { //svm + tab+ tab makes a static void main()
@@ -20,9 +22,11 @@
             int score = 0;
 
             //TODO Weapon object creation
-
+            Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
+            //Console.WriteLine(sword);//test the ToString()
             //TODO Player object creation
-
+            //Character test = new Character("Testy McTesterson",30,10,1000);
+            //Console.WriteLine(test);
 
             //TODO Create the main game loop
 
@@ -33,7 +37,7 @@
 
             do
             {
-                //TODO GetRoom()
+                 
                 //Console.WriteLine(GetRoom());
                 Console.WriteLine(GetRoom());
 
