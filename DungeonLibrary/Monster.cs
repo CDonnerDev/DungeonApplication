@@ -57,6 +57,10 @@ namespace DungeonLibrary
             MinDamage = minDamage;
         }
 
+        public Monster(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description) : base(name, hitChance, block, maxLife)
+        {
+        }
+
         //Methods
         public override string ToString()
         {
