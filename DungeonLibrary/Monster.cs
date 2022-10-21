@@ -10,9 +10,9 @@ namespace DungeonLibrary
     {
         //FIELDS
         //MinDamage = int - can't be more than MaxDamage, or less than 0.
+        private int _minDamage;
         private int _maxDamage;
         private int _damage;
-        private int _minDamage;
         private string _description;
         //Properties
         //MinDamage = int - can't be more than MaxDamage, or less than 0.
@@ -29,7 +29,7 @@ namespace DungeonLibrary
         public int MinDamage
         {
             get { return _minDamage; }
-            set { _minDamage = (value > 0 && value <= MaxDamage ? value : 0);}
+            set { _minDamage = (value > 0 && value <= MaxDamage ? value : 1);}
         }
         public string Description
         {
@@ -53,8 +53,8 @@ namespace DungeonLibrary
             //remember to set MaxDamage FIRST!!!
             MaxDamage = maxDamage;
             Damage = damage;
-            MinDamage = minDamage;
             Description = description;
+            MinDamage = minDamage;
         }
 
         //Methods
@@ -71,6 +71,7 @@ namespace DungeonLibrary
         {
             return base.CalcDamage();
             //Return a random number between Monster min and max damage
+            return new Random().Next(MinDamage, MaxDamage);
         }
     }
 }
