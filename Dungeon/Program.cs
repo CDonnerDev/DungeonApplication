@@ -84,7 +84,7 @@ namespace Dungeon
                             //TODO Run away - attack of opprotunity
 
                             Console.WriteLine("Run Away!");
-
+                            reload = true;
                             break ;
 
                         case ConsoleKey.P:
@@ -103,7 +103,7 @@ namespace Dungeon
 
                         case ConsoleKey.X:
                         case ConsoleKey.E:
-
+                        case ConsoleKey.Escape:
                             //Exit
                            
                             Console.WriteLine("Nobody likes a quitter...");
