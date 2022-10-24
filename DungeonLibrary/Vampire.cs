@@ -10,8 +10,8 @@ namespace DungeonLibrary
     {
         public DateTime HourChangeBack { get; set; }
 
-        public Vampire(string name, int hitChance, int block, int maxLife, int maxDamage, int damage, int minDamage, string description) 
-            : base(name, hitChance, block, maxLife, maxDamage, damage, minDamage, description)
+        public Vampire(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description) 
+            : base(name, hitChance, block, maxLife, maxDamage,  minDamage, description)
         {
             HourChangeBack = DateTime.Now;
             if (HourChangeBack.Hour < 6 || HourChangeBack.Hour > 18)

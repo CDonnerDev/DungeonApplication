@@ -16,6 +16,15 @@ namespace Dungeon
 
             #endregion
 
+            #region Possible Expansion - Levels of Play - Block 5
+
+            //Possible Expansion: 
+            //Define levels of play
+            //int[] levels = { 5, 12, 20, 30, 45 };//Use with experience property in Character
+            //inherited down to Player and Monster, to scale levelling.
+
+            #endregion
+
 
             // Variable to track players score
 
@@ -23,12 +32,31 @@ namespace Dungeon
 
             //TODO Weapon object creation
             Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
+            #region Possible expansion
+            //Create a list of weapoons, and either give the player a random weapon, let them pick, or let them pick a weapontype and give them a weapon
+            //off of that type
+            #endregion
+
             //Console.WriteLine(sword);//test the ToString()
             //TODO Player object creation
-            //Character test = new Character("Testy McTesterson",30,10,1000);
-            //Console.WriteLine(test);
+            #region Player Object creation
+            #region Possible Expansion - Player Customization - Block 5
 
-            //TODO Create the main game loop
+            //Possible Expansion: 
+            //Allow player to define chatacter name
+            //Console.Write("Enter your name: ");
+            //string userName = Console.ReadLine();
+            //Console.Clear();
+            //Console.WriteLine("Welcome, {0}! Your journey begins...", userName);
+            //Console.ReadKey();
+            //Console.Clear();
+
+            //Display a list of races and let them pick one, or assign one randomly.
+            #endregion
+
+            Player player = new Player("Leeroy Jenkins", 70, 5, 40, Race.Elf, sword);
+
+            #endregion           
 
             #region Main Game Loop
 
@@ -37,12 +65,13 @@ namespace Dungeon
 
             do
             {
-                 
-                //Console.WriteLine(GetRoom());
+                 //Generate a random room the player will enter
+                
                 Console.WriteLine(GetRoom());
 
-                //TODO Select a random monster to inhabit   
-
+                //Select a random monster to inhabit   
+                Monster monster = Monster.GetMonster();
+                Console.WriteLine("\n In this room..." + monster.Name);
                 //Create the gameplay menu loop
 
                 #region Gameplay Menu Loop
@@ -52,7 +81,7 @@ namespace Dungeon
                 do
                 {
 
-                    //Create the main Gameplay menu
+                    
                     #region MENU
 
                     //Prompt the user 
@@ -73,32 +102,69 @@ namespace Dungeon
                     switch (userChoice)
                     {
                         case ConsoleKey.A:
-                            //TODO Combat
 
-                            Console.WriteLine("Attack");
+                            //Combat
+                            #region Possible Expansion - Racial/Weapon Bonus
+
+                            //Possible Expansion: Give certain character races or characters with a certain weapon an advantage
+                            //if (player.CharacterRace == Race.DarkElf)
+                            //{
+                            //    Combat.DoAttack(player, monster);
+                            //}
+                            #endregion
+
+                            Combat.DoBattle(player, monster);
+                            //Check if the monster is dead
+                            if (monster.Life <= 0 )
+                            {
+                                //loot,exp, gold, whatever.
+
+                                //Use Green to indicate winning
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                //output the result
+                                Console.WriteLine($"\nYou killed {monster.Name}!");
+
+                                //Reset the color 
+                                Console.ResetColor();
+
+                                //leave the inner loop
+                                reload = true;
+
+                                //update the score
+                                score++;
+                            }
 
                             break;
 
                         case ConsoleKey.R:
 
-                            //TODO Run away - attack of opprotunity
+                            //Run away - attack of opprotunity
 
-                            Console.WriteLine("Run Away!");
+                            Console.WriteLine("Run Away!!!");
+
+                            //Monster gets an "Attack of opprotunity"
+                            Console.WriteLine(monster.Name + " attacks you as you flee!");
+                            Combat.DoAttack(monster, player);
+                            Console.WriteLine();//for formatting
+
                             reload = true;
-                            break ;
+                            break;
 
                         case ConsoleKey.P:
                         
-                        //TODO Player Stats
+                        //Player Stats
 
-                        Console.WriteLine("Player info");
+                        Console.WriteLine(player);
+
                             break;
 
                         case ConsoleKey.M:
 
-                            //TODO Monster stats
+                            //Monster stats
 
-                            Console.WriteLine("Monster Info");
+                            Console.WriteLine(monster);
+
                             break;
 
                         case ConsoleKey.X:
@@ -120,8 +186,12 @@ namespace Dungeon
                     }
                     #region Check Players Life total
 
-                    //TODO Check players life
-
+                    //Check players life
+                    if (player.Life <= 0)
+                    {
+                        Console.WriteLine("Dude... you died! \a");
+                        exit |= true;
+                    }
 
 
                     #endregion
@@ -141,13 +211,11 @@ namespace Dungeon
 
             #endregion
 
-
-            //TODO Output the final score
             Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "." : "s."));
             
 
             //Added this line to preserve Console.Title
-            Console.ReadKey();
+           
 
         }//end main()
 
@@ -167,7 +235,3 @@ namespace Dungeon
         }//end GetRoom
     }//end class
 }//end namespace
-
-
-
-
