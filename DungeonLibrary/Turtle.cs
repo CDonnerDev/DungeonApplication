@@ -13,7 +13,7 @@ namespace DungeonLibrary
         public int HidePercent { get; set; }
 
 
-        public Turtle(string name, int hitChance, int block, int maxLife, int maxDamage, int damage, int minDamage, string description, int bonusBlock, int hidePercent) : base(name, hitChance, block, maxLife, maxDamage, damage, minDamage, description)
+        public Turtle(string name, int hitChance, int block, int maxLife, int maxDamage, int minDamage, string description, int bonusBlock, int hidePercent) : base(name, hitChance, block, maxLife, maxDamage, minDamage, description)
         {
             //Pass everything from monster back to monster using : Base
             //Handle unique turtle things here

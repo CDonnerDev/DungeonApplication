@@ -30,9 +30,9 @@ namespace DungeonLibrary
         //Parent Complaint (Monster) CTOR
         //Intellisense quick action on the parent name in the class declaration
         public Rabbit(string name, int hitChance, int block, int maxLife, //Character
-            int maxDamage, int damage, int minDamage, string description,//Monster
+            int maxDamage, int minDamage, string description,//Monster
             bool isFluffy) //Rabbit
-            : base(name, hitChance, block, maxLife, maxDamage, damage, minDamage, description)
+            : base(name, hitChance, block, maxLife, maxDamage, minDamage, description)
         {
             IsFluffy=isFluffy;
         }
