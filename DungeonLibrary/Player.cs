@@ -24,13 +24,29 @@ namespace DungeonLibrary
             CharacterRace = characterRace;
             EquippedWeapon = equippedWeapon;
             //potential expansion, not required
-            //switch (CharacterRace)
-            //{
-            //    case Race.Elf:
-            //        HitChance += 5;
-            //        MaxHealth -= 5;
-            //        break;
-            //}
+            switch (CharacterRace)
+            {
+                case Race.Elf:
+                   HitChance += 5;
+                  MaxLife -= 5;
+                    break;
+                case Race.Human:
+                    HitChance += 2;
+                    MaxLife -= 2;
+                    break;
+                case Race.Orc:
+                    HitChance += 6;
+                    MaxLife -= 6;
+                    break;
+                case Race.Dwarf:
+                    HitChance += 3;
+                    MaxLife -= 3;
+                    break;
+                case Race.Tiefling:
+                    HitChance += 1;
+                    MaxLife -= 1;
+                    break;
+            }
         }
         public Player()
         {
@@ -54,7 +70,39 @@ namespace DungeonLibrary
             string description = CharacterRace.ToString().Replace('_', ' ');
 
             //holding variable for the description
-            //Switch on CharacterRace
+            switch (CharacterRace)
+            {
+                case Race.Human:
+                    Console.WriteLine("Humans are the mortal men of middle earth");
+                        break;
+                case Race.Orc:
+                    Console.WriteLine("Orcs are the smelliest creature that terrorizes midddle earth");
+                    break;
+                case Race.Elf:
+                    Console.WriteLine("Elves are the fairest but also some are the scariest in all of middle earth");
+                    break;
+                case Race.Dwarf:
+                    Console.WriteLine("Dwarves are the best miners and makers of weapons and armor");
+                    break;
+                case Race.Khajit:
+                    Console.WriteLine("The people look like cats.....Are you sure you want to be a cat?");
+                    break ;
+                case Race.Dragonborn:
+                    Console.WriteLine("Hey, you. You're finally awake");
+                    break;
+                case Race.Tiefling:
+                    Console.WriteLine("This Humanoid Race is here to destroy all in their path, do you join them?");
+                    break;
+                case Race.Gnome:
+                    Console.WriteLine("The Gnomes are a WEIRD race, they are the shortest and the least fashionable");
+                    break;
+                case Race.Halflings:
+                    Console.WriteLine("Half Human Half Elf, what a crazy sight that could've been, they hate each other");
+                    break;
+                  
+                   
+
+            }
             //case CharacterRace.Elf: 
             //  description = "Describe an Elf"
             //  break;            

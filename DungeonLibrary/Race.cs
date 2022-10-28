@@ -19,9 +19,6 @@ namespace DungeonLibrary
         Dragonborn,
         Tiefling,
         Gnome,
-        Halflings,
-        Alien,
-        Aasimar,
-        Drow
+        Halflings
     }
 }

@@ -30,11 +30,16 @@ namespace Dungeon
 
             int score = 0;
 
-            //TODO Weapon object creation
+            // Weapon object creation
             Weapon sword = new Weapon(8, "Long Sword", 10, false, WeaponType.Sword, 1);
+            Weapon knife = new Weapon(4, "Emperors Bane", 6, false, WeaponType.Knife, 1);
+            Weapon projectile = new Weapon(7, "The Spear of Klendathu", 7, true, WeaponType.Projectile, 2);
+            Weapon magic = new Weapon(2, "Spell of Aseroth", 2, false, WeaponType.Magical, 2);
+
             #region Possible expansion
             //Create a list of weapoons, and either give the player a random weapon, let them pick, or let them pick a weapontype and give them a weapon
             //off of that type
+            //Console.WriteLine(GetWeapon());
             #endregion
 
             //Console.WriteLine(sword);//test the ToString()
@@ -44,17 +49,25 @@ namespace Dungeon
 
             //Possible Expansion: 
             //Allow player to define chatacter name
-            //Console.Write("Enter your name: ");
-            //string userName = Console.ReadLine();
-            //Console.Clear();
-            //Console.WriteLine("Welcome, {0}! Your journey begins...", userName);
-            //Console.ReadKey();
-            //Console.Clear();
+            Console.Write("Enter your name: ");
+            string userName = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Welcome, {0}! Your journey begins...", userName);
+            Console.ReadKey();
+            Console.Clear();
 
             //Display a list of races and let them pick one, or assign one randomly.
+            Console.WriteLine("You are " + GetRace());
+
+            Console.WriteLine("You were given " + GetWeapon());
+
+            Console.WriteLine("\nYou Are a weary traveller coing from across the plains and you enter a mysterious building and walk into a room\n");
+
+            
+
             #endregion
 
-            Player player = new Player("Leeroy Jenkins", 70, 5, 40, Race.Elf, sword);
+            Player player = new Player(userName, 70, 5, 40,Race.Elf , sword);
 
             #endregion           
 
@@ -233,5 +246,32 @@ namespace Dungeon
 
             return rooms[new Random().Next(rooms.Length)];
         }//end GetRoom
+        private static string GetRace()
+        {
+            string[] races =
+            {
+                " You are an Elf",
+                "You are a Dwarf",
+                "You are a Human",
+                "You are a Orc",
+                "You are a Halfling",
+                "YOU ARE THE DRAGONBORNE",
+            };
+            return races[new Random().Next(races.Length)];
+        }
+        private static string GetWeapon()
+        {
+            string[] Weapons =
+            {
+                " Sword",
+                " knife",
+                " Projectile",
+                " Magic"
+
+
+            };
+            return Weapons[new Random().Next(Weapons.Length)];
+        }
+
     }//end class
 }//end namespace
