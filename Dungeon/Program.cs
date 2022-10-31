@@ -43,7 +43,7 @@ namespace Dungeon
             #endregion
 
             //Console.WriteLine(sword);//test the ToString()
-            //TODO Player object creation
+            // Player object creation
             #region Player Object creation
             #region Possible Expansion - Player Customization - Block 5
 
@@ -120,10 +120,14 @@ namespace Dungeon
                             #region Possible Expansion - Racial/Weapon Bonus
 
                             //Possible Expansion: Give certain character races or characters with a certain weapon an advantage
-                            //if (player.CharacterRace == Race.DarkElf)
-                            //{
-                            //    Combat.DoAttack(player, monster);
-                            //}
+                            if (player.CharacterRace == Race.Orc)
+                            {
+                                Combat.DoAttack(player, monster);
+                            }
+                            else if (player.CharacterRace == Race.Gnome)
+                            {
+                                Combat.DoAttack(monster, player);
+                            }
                             #endregion
 
                             Combat.DoBattle(player, monster);
@@ -256,6 +260,9 @@ namespace Dungeon
                 "You are a Orc",
                 "You are a Halfling",
                 "YOU ARE THE DRAGONBORNE",
+                "You are Tiefling",
+                "You are a Gnome",
+                "You are a Khajit"
             };
             return races[new Random().Next(races.Length)];
         }

@@ -46,6 +46,21 @@ namespace DungeonLibrary
                     HitChance += 1;
                     MaxLife -= 1;
                     break;
+                    case Race.Dragonborn:
+                    HitChance += 7;
+                        MaxLife -= 7;
+                    break;
+                    case Race.Khajit:
+                    HitChance += 4;
+                        MaxLife -= 4;
+                    break;
+                    case Race.Gnome:
+                    HitChance += 1;
+                        MaxLife -= 1;
+                    break ;
+                    
+
+                        
             }
         }
         public Player()
@@ -107,7 +122,8 @@ namespace DungeonLibrary
             //  description = "Describe an Elf"
             //  break;            
             return base.ToString() + $"\nWeapon:\n{EquippedWeapon}\nBlock: {Block}\n" +
-                $"Description: {description}";//+some unique description based on the player race.
+                $"Description: {description}";
+            //+some unique description based on the player race.
             //hint, use a switch
         }
     }
