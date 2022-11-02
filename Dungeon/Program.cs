@@ -57,17 +57,21 @@ namespace Dungeon
             Console.Clear();
 
             //Display a list of races and let them pick one, or assign one randomly.
-            Console.WriteLine("You are " + GetRace());
+            
+            
+            
+            Console.WriteLine("You have chosen " +  GetRace());
 
-            Console.WriteLine("You were given " + GetWeapon());
+
+            Console.WriteLine("You were given " + sword);
 
             Console.WriteLine("\nYou Are a weary traveller coing from across the plains and you enter a mysterious building and walk into a room\n");
 
-            
+
 
             #endregion
 
-            Player player = new Player(userName, 70, 5, 40,Race.Elf , sword);
+            Player player = new Player(userName, 70, 5, 40, Race.Elf,sword );
 
             #endregion           
 
@@ -257,7 +261,7 @@ namespace Dungeon
                 " You are an Elf",
                 "You are a Dwarf",
                 "You are a Human",
-                "You are a Orc",
+                "You are a dirty Orc",
                 "You are a Halfling",
                 "YOU ARE THE DRAGONBORNE",
                 "You are Tiefling",
@@ -270,10 +274,10 @@ namespace Dungeon
         {
             string[] Weapons =
             {
-                " Sword",
-                " knife",
-                " Projectile",
-                " Magic"
+                 "Sword",
+                 "Knife",
+                 "Projectile",
+                 "Magic"
 
 
             };
